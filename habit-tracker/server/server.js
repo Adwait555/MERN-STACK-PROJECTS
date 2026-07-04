@@ -10,7 +10,7 @@ const app = express();
 
 connectDB();
 
-app.use(cors({ origin: process.env.CLIENT_ORIGIN || 'http://localhost:5173' }));
+app.use(cors({ origin: process.env.CLIENT_ORIGIN || 'http://localhost:5175' }));
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
@@ -20,5 +20,5 @@ app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
 
 app.use((req, res) => res.status(404).json({ message: 'Route not found' }));
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5002;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
